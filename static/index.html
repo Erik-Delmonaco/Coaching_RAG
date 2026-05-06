@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Coaching Report Assistant</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="page-shell">
+		<section class="hero">
+			<p class="eyebrow">Coaching RAG</p>
+			<h1>Query the right report before you query the model.</h1>
+			<p class="hero-copy">
+				Pick the report set, ask a question, and the assistant will answer from that collection only.
+			</p>
+		</section>
+
+		<section class="panel">
+			<form id="ask-form" class="query-form">
+				<fieldset class="collection-group">
+					<legend>Report to query</legend>
+
+					<label class="collection-card">
+						<input type="radio" name="collection" value="roster_2026" checked>
+						<span class="card-title">Roster</span>
+						<span class="card-copy">Player and roster evaluation context</span>
+					</label>
+
+					<label class="collection-card">
+						<input type="radio" name="collection" value="opponents_2026">
+						<span class="card-title">Opponents</span>
+						<span class="card-copy">Opponent report context and tendencies</span>
+					</label>
+
+					<label class="collection-card">
+						<input type="radio" name="collection" value="scouting_2027">
+						<span class="card-title">Scouting</span>
+						<span class="card-copy">Forward-looking scouting report context</span>
+					</label>
+				</fieldset>
+
+				<label class="question-group" for="question">
+					<span>Your question</span>
+					<textarea
+						id="question"
+						name="question"
+						rows="6"
+						placeholder="Example: What are the main strengths and weaknesses in our linebacker room?"
+						required
+					></textarea>
+				</label>
+
+				<div class="form-actions">
+					<button type="submit" id="submit-button">Ask</button>
+					<p id="status" class="status" aria-live="polite"></p>
+				</div>
+			</form>
+		</section>
+
+		<section class="panel answer-panel">
+			<div class="answer-header">
+				<h2>Answer</h2>
+				<span id="answer-collection" class="answer-tag">Roster</span>
+			</div>
+			<div id="answer" class="answer" aria-live="polite">
+				Submit a question to see the response here.
+			</div>
+		</section>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>
